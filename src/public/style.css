@@ -21,6 +21,10 @@ body {
     /* background-color: rgb(210, 39, 73); */
 }
 
+h1 {
+    margin-bottom: 20px; /* Add space below the title */
+}
+
 .leaderboard-container{
     width: 70%;            /* Make container almost full-width */
     max-width: 1200px;     /* Optional: limit max width for large screens */
