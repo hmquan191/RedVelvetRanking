@@ -2,11 +2,11 @@
   "name": "redvelvetranking",
   "version": "1.0.0",
   "main": "script.js",
- "scripts": {
+  "scripts": {
     "start": "nodemon server.js",
     "serve": "browser-sync start --server 'src/public' --files 'src/public/**/*.*'",
-    "dev": "concurrently \"npm run start\" \"npm run serve\""
-},
+    "dev": "concurrently \"nodemon app.js\" \"browser-sync start --proxy http://localhost:5500 --files 'src/public/*' --port 3000\""
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "cors": "^2.8.5",
     "csv-parser": "^3.0.0",
     "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
     "express": "^4.21.1",
     "mongoose": "^8.8.0"
   },

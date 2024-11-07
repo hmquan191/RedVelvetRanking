@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(songs => {
             songs.forEach(song => {
                 const li = document.createElement('li');
-                li.textContent = `${song.name} - ${song.album} - ${song.releaseYear}`;
+                li.innerHTML = `
+                    <div>${song.name}</div>
+                    <div>${song.album}</div>
+                    <div>${song.releaseYear}</div>
+                `;
                 leaderboard.appendChild(li);
             });
         })
