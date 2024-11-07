@@ -15,6 +15,11 @@ h1 {
     text-align: center;
 }
 
+.discography{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
 
 .small-text{
     background-color: #000000;
@@ -110,4 +115,46 @@ background: rgba(238, 17, 17, 0.81); */
 iframe{
     width: 50%;
     max-width: 300px;
+}
+
+.name-tag {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.name-tag span{
+    padding: 5px 15px;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+}
+
+#joy{
+    color: #32CD32;
+    font-size: 14px;
+}
+
+#yeri{
+    color: #6C3082;
+    font-size: 14px;
+}
+
+#irene{
+    color: #C21E56;
+    font-size: 14px;
+}
+
+#seulgi{
+    color: #EEB211;
+    font-size: 14px;
+}
+
+#wendy{
+    color: #0070B8;
+    font-size: 14px;
 }
