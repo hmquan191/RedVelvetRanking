@@ -1,9 +1,52 @@
 
+
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: crimson;
+    width: 100%;
+    height: 150vh;
+    display: block;
+    margin: 0;
 
+    color: #ffc0cb;
+    justify-content: center;
+    align-items: center;
+
+    /* option 1: */
+    background-color: rgb(175, 14, 46);
+
+    /* option 2*/
+    /* background-color: rgb(205, 58, 87); */
+
+    /* option 3*/
+    /* background-color: rgb(210, 39, 73); */
+}
+
+.leaderboard-container{
+    width: 70%;            /* Make container almost full-width */
+    max-width: 1200px;     /* Optional: limit max width for large screens */
+    height: 80%;
+    max-height: 570px;
+    margin: auto;          /* Center the container horizontally */
+    padding: 50px;         /* Uniform padding inside */
+    border-radius: 15px;
+    background-color: rgba(241, 80, 134, 0.484); /* Background with slight transparency */
+    box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5); /* Subtle shadow */
+    /* border: 3px solid #dee9ff; */
+
+    border: 3px ridge  #dee9ff;
+}
+
+
+.text{
+    text-align: justify;
+    size: 50px;
+    display: flex;
+    gap: 490px;
+    align-items: center;
+}
+
+.text p {
+    font-size: 20px; /* Adjust size as needed */
 }
 
 h1 {
@@ -17,6 +60,7 @@ ul {
 }
 
 li {
+    text-align: center;
     padding: 10px;
     margin: 5px;
     background-color: #f0f0f0;
