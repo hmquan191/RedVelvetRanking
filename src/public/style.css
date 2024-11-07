@@ -132,29 +132,45 @@ iframe{
     font-size: 14px;
     display: inline-block;
     text-align: center;
+/* 
+    hieu ung */
+    transition: all 0.2s ease;
 }
 
 #joy{
     color: #32CD32;
     font-size: 14px;
+    box-shadow: 0 0 10px #32cd32;
 }
 
+
+/* 
+#6C3082 */
 #yeri{
-    color: #6C3082;
+    color: #9523bf;
     font-size: 14px;
+    box-shadow: 0 0 10px #9523bf;
 }
 
 #irene{
     color: #C21E56;
     font-size: 14px;
+    box-shadow: 0 0 10px  #C21E56;
 }
 
 #seulgi{
     color: #EEB211;
     font-size: 14px;
+    box-shadow: 0 0 10px #EEB211;
 }
 
 #wendy{
     color: #0070B8;
     font-size: 14px;
+    box-shadow: 0 0 10px #0070B8;
+}
+
+.name-tag span:hover{
+    box-shadow: 0 0 15px currentColor;
+    transform: scale(1.05);
 }
