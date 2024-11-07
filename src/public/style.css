@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     width: 100%;
-    height: 150vh;
+    height: 250vh;
     display: block;
     margin: 0;
     color: #ffc0cb;
@@ -11,11 +11,22 @@ body {
 }
 
 h1 {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
+
+.small-text{
+    background-color: #000000;
+    color:blanchedalmond;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+
 .leaderboard-container {
+    /* display: flex;
+    justify-content: center; */
     width: 70%;
     max-width: 1200px;
     margin: auto;
@@ -24,6 +35,7 @@ h1 {
     background-color: rgba(241, 80, 134, 0.484);
     box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
     border: 3px ridge #dee9ff;
+    text-align: center;
 }
 
 .header {
@@ -51,4 +63,51 @@ h1 {
     border-radius: 5px;
     text-align: center;
     font-size: 18px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+/* 
+background: rgba(238, 17, 17, 0.81); */
+
+.button {
+    margin: 0;
+    padding: 10px 20px; /* Increase padding for a more button-like appearance */
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(238, 17, 17, 0.81);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px; /* Optional: Rounded corners for the button */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.button:hover{
+    background-color: rgb(255, 102, 0);
+    color: white;
+    box-shadow: 0px 0px 15px 5px rgba(255, 0, 128, 0.6);
+    transform: scale(1.05);
+}
+
+
+
+.spotify-container{
+    margin-top: 40px;
+    display: flex;
+    justify-content:space-between;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+iframe{
+    width: 50%;
+    max-width: 300px;
 }
