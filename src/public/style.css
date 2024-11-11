@@ -173,10 +173,18 @@ background: rgba(238, 17, 17, 0.81); */
 }
 
 .prev-button {
+    background-color: rgb(255, 102, 0);
+    color: white;
+    box-shadow: 0px 0px 15px 5px rgba(255, 0, 128, 0.6);
+    transform: scale(1.05);
     left: 20px;
 }
 
 .next-button {
+    background-color: rgb(255, 102, 0);
+    color: white;
+    box-shadow: 0px 0px 15px 5px rgba(255, 0, 128, 0.6);
+    transform: scale(1.05);
     right: 20px;
 }
 
@@ -242,4 +250,9 @@ iframe{
 .name-tag span:hover{
     box-shadow: 0 0 15px currentColor;
     transform: scale(1.05);
+}
+
+label{
+    display: block;
+    margin: 0.5rem 0;
 }
