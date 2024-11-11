@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextButton = document.querySelector('.next-button');
     
     let currentIndex = 0;
-    const itemWidth = 250; // Width + gap
+    const itemWidth = 350; // Width + gap
     
     // Set initial position
     updateCarousel();
@@ -86,3 +86,32 @@ document.addEventListener('DOMContentLoaded', function() {
         autoScrollInterval = setInterval(nextSlide, 5000);
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const generateButton = document.getElementById('generateButton');
+    const downloadButton = document.getElementById('downloadButton');
+    const luckyCard = document.getElementById('luckyCard');
+
+    generateButton.addEventListener('click', () => {
+        // hien tai co 24 tam anh thi gen 24 so random
+        const randomNumber = Math.floor(Math.random() * 24);
+        const randomImagePath = `./img/RV_PIC/${randomNumber}.jpg`;
+
+        // Display the image
+        luckyCard.src = randomImagePath;
+        luckyCard.style.display = "inline-block";
+    });
+
+    downloadButton.addEventListener('click',() => {
+        const imgPath = luckyCard.src;
+
+        const link = document.createElement('a');
+        link.href = imgPath;
+        link.download = `Lucky_Card_${Date.now()}.jpg`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+})
+

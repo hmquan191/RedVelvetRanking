@@ -216,34 +216,31 @@ iframe{
 
 #joy{
     color: #32CD32;
-    font-size: 14px;
+    font-size: 20px;
     box-shadow: 0 0 10px #32cd32;
 }
 
-
-/* 
-#6C3082 */
 #yeri{
     color: #9523bf;
-    font-size: 14px;
+    font-size: 20px;
     box-shadow: 0 0 10px #9523bf;
 }
 
 #irene{
     color: #C21E56;
-    font-size: 14px;
+    font-size: 20px;
     box-shadow: 0 0 10px  #C21E56;
 }
 
 #seulgi{
     color: #EEB211;
-    font-size: 14px;
+    font-size: 20px;
     box-shadow: 0 0 10px #EEB211;
 }
 
-#wendy{
+#wendy {
     color: #0070B8;
-    font-size: 14px;
+    font-size: 20px;
     box-shadow: 0 0 10px #0070B8;
 }
 
@@ -254,5 +251,31 @@ iframe{
 
 label{
     display: block;
+    text-align: center;
     margin: 0.5rem 0;
 }
+
+input {
+    display: block;
+    margin: 0 auto;
+    size: 500px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#luckyCard {
+    border: 5px solid #ffc0cb;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 5px rgba(255, 0, 128, 0.6);
+}
+

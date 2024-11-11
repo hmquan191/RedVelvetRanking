@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
     <div class = "info">
-        <img src="./img/logoRV-white.jpg" alt="RV logo" width="200px" height="100px" />
+        <img src="./img/RV_PIC/logoRV-white.jpg" alt="RV logo" width="200px" height="100px" />
     </div>
 
     
@@ -51,8 +51,8 @@
     </div>
 
     
-
-    <!-- <div class = "spotify-container">
+<!-- 
+    <div class = "spotify-container">
         <button class = "carousel-nav prev-button"> < </button>
         <button class = "carousel-nav next-button"> > </button>
         <div class="spotify-carousel">
@@ -114,19 +114,57 @@
     <!-- LUCKY CARD GENERATOR -->
 <h1 class = "generator">LUCKY CARD GENERATOR</h1>
 
+<div class = "button-container">
+    <button id = "generateButton" class = "button">GENERATE!</button>
+</div>
 
-<h1>WHO IS YOUR BIAS?</h1>
-<p class = "small-text">Fill out the form to see the stats</p>
+<div class = "card-container">
+    <img id = "luckyCard" src = "" alt = "Lucky Card" style ="display:none; width:300px; height: auto;" >
+</div>
+
+<div class = "button-container">
+    <button id = "downloadButton" class  = "button" style = "display: none;"> Download Card</button>
+</div>
+
+
+<h1>WHO IS YOUR ULTIMATE BIAS?</h1>
+<p class = "small-text">Fill out the form and cast your vote to see the stats</p>
 
 <form>
     <!-- basic info -->
     <fieldset>
-        <label for="first-name">Enter Your First Name: <input id="first-name" type="text" required /></label>
-        <label for="last-name">Enter Your Last Name: <input id="last-name" type="text" required /></label>
-        <label for="email">Enter Your Email: <input id="email" type="email" required /></label>
+        <label for="first-name"><h3>First Name:</h3> <input id="last-name"  size = 30 type="text" required /></label>
+        <label for="last-name"><h3>Last Name:</h3> <input id="last-name"  size = 30 type="text" required /></label>
+        <label for="email"> <h3>Your Email:</h3> <input id="email" size = 30  type="email" required /></label>
     <!-- radio option -->
-    <fieldset></fieldset>
+    <fieldset>
+        <legend>Your Ultimate Bias is:</legend>
+        <label>
+            <label>
+                <input name="voting" type="radio" checked required>
+                <p id="joy" class="glow">JOY</p>
+            </label>
+            <label>
+                <input name="voting" type="radio" required>
+                <p id="yeri" class="glow">YERI</p>
+            </label>
+            <label>
+                <input name="voting" type="radio" required>
+                <p id="irene" class="glow">IRENE</p>
+            </label>
+            <label>
+                <input name="voting" type="radio" required>
+                <p id="seulgi" class="glow">SEULGI</p>
+            </label>
+            <label>
+                <input name="voting" type="radio" required>
+                <p id="wendy" class="glow">WENDY</p>
+            </label>
 
+        
+        
+    </fieldset>
+    <input type = "submit" value = "Submit" />
 </form>
 
 
