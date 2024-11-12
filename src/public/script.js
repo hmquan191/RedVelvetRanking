@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const leaderboard = document.getElementById('leaderboard');
 
@@ -87,31 +88,47 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
+    
 
     const generateButton = document.getElementById('generateButton');
-    const downloadButton = document.getElementById('downloadButton');
     const luckyCard = document.getElementById('luckyCard');
+    
+    // comment lai lat sua
+
+    // const numberPicture = getPostLength();
+    // console.log(`Number of picture in RV_PIC folder: ${numberPicture}`);
+
+    let numberPicture;
+
+    fetch('/api/image-count')
+    .then(response => response.json())
+    .then(data => {
+        numberPicture = data.count;
+        console.log(`Fetched pictures in RV_PIC folder: ${numberPicture}`);
+    })
+    .catch(err => console.error("Failed to retrieve image count:", err));
+
 
     generateButton.addEventListener('click', () => {
-        // hien tai co 24 tam anh thi gen 24 so random
-        const randomNumber = Math.floor(Math.random() * 24);
+        // Generate a random number between 1 and numberPicture
+        const randomNumber = Math.floor(Math.random() * numberPicture) + 1;
         const randomImagePath = `./img/RV_PIC/${randomNumber}.jpg`;
 
-        // Display the image
+        // Set the image source
         luckyCard.src = randomImagePath;
         luckyCard.style.display = "inline-block";
-    });
+        console.log(`Card no.${randomNumber} generated successfully!`);
 
-    downloadButton.addEventListener('click',() => {
-        const imgPath = luckyCard.src;
-
-        const link = document.createElement('a');
-        link.href = imgPath;
-        link.download = `Lucky_Card_${Date.now()}.jpg`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        // Add error handling if the image doesn't load
+        luckyCard.onerror = () => {
+            console.error(`Image not found: ${randomImagePath}`);
+            luckyCard.src = ''; // Clear the src to avoid showing a broken image icon
+            luckyCard.alt = "Image not available"; // Display this message if the image is missing
+            luckyCard.style.display = "none"; // Hide the image if it fails to load
+        };
     });
-})
+});
 

@@ -3,6 +3,7 @@ const router = express.Router();
 const Song = require('../models/Song');
 const fs = require('fs');
 const csv = require('csv-parser');
+const path = require('path');
 
 // Load songs from CSV and insert into MongoDB
 router.post('/load', (req, res) => {
@@ -30,5 +31,8 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 });
+
+
+
 
 module.exports = router;
