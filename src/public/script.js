@@ -95,11 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const generateButton = document.getElementById('generateButton');
     const luckyCard = document.getElementById('luckyCard');
-    
-    // comment lai lat sua
 
-    // const numberPicture = getPostLength();
-    // console.log(`Number of picture in RV_PIC folder: ${numberPicture}`);
 
     let numberPicture;
 
@@ -131,4 +127,42 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/api/cardGame-count')
+        .then(response => response.json())
+        .then(counts => {
+            console.log("Card game image counts:", counts);
+
+            // Example: Set up slot machine with these counts
+            document.getElementById("slot-machine").addEventListener("click", function() {
+
+
+                const members = ["irene", "joy", "seulgi", "wendy", "yeri"];
+                members.forEach(member => {
+                    const randomNum = Math.floor(Math.random() * counts[member]) + 1; // Use count from API
+                    document.getElementById(`${member}-slot`).src = `img/RV_CardGame/${member}/${randomNum}_${member}.jpg`;
+                });
+
+
+                
+                const phrases = [
+                    "Team of the Year",
+                    "Team of the Season",
+                    "Dream Team",
+                    "Squad Goals",
+                    "Ultimate Formation",
+                    "Power Up!",
+                    "Legendary Team",
+                    "Perfect Squad"
+                ];
+
+                const randomPhrase = phrases[Math.floor(Math.random()*phrases.length)];
+                document.querySelector(".small-text-squad").innerText = randomPhrase;
+            });
+        })
+        .catch(err => console.error("Failed to retrieve card game counts:", err));
+});
+
+
 

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const songsRouter = require('./src/routes/songs'); // Adjusted path for routes
 const imageCountRouter = require('./src/routes/imageCount');
+const cardGameCountRouter = require('./src/routes/CardGameCount');
 
 dotenv.config();
 
@@ -21,6 +22,8 @@ mongoose.connect(process.env.MONGODB_URI)
 // Use the songs router
 app.use('/api/songs', songsRouter);
 app.use('/api/image-count', imageCountRouter);
+app.use('/api/cardGame-count', cardGameCountRouter);
+
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'src/public', 'index.html'));
