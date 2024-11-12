@@ -1,29 +1,29 @@
 
-document.addEventListener('DOMContentLoaded', () => {
-    const leaderboard = document.getElementById('leaderboard');
+// document.addEventListener('DOMContentLoaded', () => {
+//     const leaderboard = document.getElementById('leaderboard');
 
-    // Load songs from the API
-    fetch('/api/songs')
-        .then(response => response.json())
-        .then(songs => {
-            songs.forEach(song => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    <div>${song.name}</div>
-                    <div>${song.album}</div>
-                    <div>${song.releaseYear}</div>
-                `;
-                leaderboard.appendChild(li);
-            });
-        })
-        .catch(err => console.error(err));
+//     // Load songs from the API
+//     fetch('/api/songs')
+//         .then(response => response.json())
+//         .then(songs => {
+//             songs.forEach(song => {
+//                 const li = document.createElement('li');
+//                 li.innerHTML = `
+//                     <div>${song.name}</div>
+//                     <div>${song.album}</div>
+//                     <div>${song.releaseYear}</div>
+//                 `;
+//                 leaderboard.appendChild(li);
+//             });
+//         })
+//         .catch(err => console.error(err));
 
-    // Load songs from CSV
-    fetch('/api/songs/load', { method: 'POST' })
-        .then(response => response.json())
-        .then(data => console.log(data.message))
-        .catch(err => console.error(err));
-});
+//     // Load songs from CSV
+//     fetch('/api/songs/load', { method: 'POST' })
+//         .then(response => response.json())
+//         .then(data => console.log(data.message))
+//         .catch(err => console.error(err));
+// });
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -167,46 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(err => console.error("Failed to retrieve card game counts:", err));
 });
 
-
-// videos
-
-// const videoSection = document.querySelector('.video-section');
-// const videoContainer = document.querySelector('.video-container');
-// const loader = document.querySelector('.loader'); 
-
-// fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=UUk9GmdlDTBfgGRb7vXeRMoQ&key=AIzaSyAyM6mWoiesabk9jkR2ZBr6NTUWb1ZEtcQ')
-//     .then(res => res.json())
-//     .then(data => {
-//         // Hide loader if you have it
-//         if (loader) loader.style.display = 'none';
-
-//         // Display each video
-//         data.items.forEach((item) => {
-//             const videoId = item.snippet.resourceId.videoId;
-//             const title = item.snippet.title;
-//             const thumbnailUrl = item.snippet.thumbnails.medium.url;
-
-//             // Create a link element for each video
-//             const videoLink = document.createElement('a');
-//             videoLink.href = `https://www.youtube.com/watch?v=${videoId}`;
-//             videoLink.target = '_blank';
-//             videoLink.classList.add('yt-video');
-
-//             videoLink.innerHTML = `
-//                 <img src="${thumbnailUrl}" alt="${title}" class="video-thumbnail">
-//                 <p class="video-title">${title}</p>
-//             `;
-
-//             // Append to the container
-//             videoContainer.appendChild(videoLink);
-//         });
-//     })
-//     .catch(error => {
-//         console.error('Error fetching videos:', error);
-//         videoSection.innerHTML = '<p class="error-message">Failed to load videos. Please try again later.</p>';
-//     });
-
-
 const videoSection = document.querySelector('.video-section');
 const videoContainer = document.querySelector('.video-container');
 const loader = document.querySelector('.loader');
@@ -250,3 +210,75 @@ fetch('/api-config')
         console.error('Error fetching videos:', error);
         videoSection.innerHTML = '<p class="error-message">Failed to load videos. Please try again later.</p>';
 });
+
+
+
+fetch('https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=%E2%80%98The+ReVe+Festival%E2%80%99+Finale&format=json')
+    .then(response => response.json())
+    .then(data => {
+        console.log('Album information:', data);
+    })
+    .catch(error => {
+        console.error('Error fetching album information:', error);
+});
+
+
+// Album playcount
+const albums = [
+    'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=%E2%80%98The+ReVe+Festival%E2%80%99+Finale&format=json',
+    'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=The+Perfect+Red+Velvet+-+The+2nd+Album+Repackage&format=json',
+    'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=Russian+Roulette+-+The+3rd+Mini+Album&format=json',
+    'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=Perfect+Velvet+-+The+2nd+Album&format=json',
+    'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=The+Red+Summer+-+Summer+Mini+Album&format=json',
+    'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=The+Red+-+The+1st+Album&format=json',
+    'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=%E2%80%98The+ReVe+Festival+2022+-+Feel+My+Rhythm%E2%80%99&format=json',
+    'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=Queendom+-+The+6th+Mini+Album&format=json',
+    'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=Summer+Magic+-+Summer+Mini+Album&format=json',
+    'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=%E2%80%98The+ReVe+Festival+2022+-+Birthday%E2%80%99&format=json',
+    'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=Chill+Kill+-+The+3rd+Album&format=json',
+];
+
+async function fetchAlbumData(url) {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return {
+            name: data.album.name,
+            playCount: data.album.playcount,
+            imageUrl: data.album.image.find(img => img.size === "extralarge")['#text'],
+        };
+    } catch (error) {
+        console.error("Error fetching album data:", error);
+    }
+}
+
+async function loadLeaderboard() {
+    const leaderboardData = await Promise.all(albums.map(url => fetchAlbumData(url)));
+
+    // Sort by play count
+    leaderboardData.sort((a, b) => b.playCount - a.playCount);
+
+    // Render leaderboard
+    renderLeaderboard(leaderboardData);
+}
+
+function renderLeaderboard(data) {
+    const leaderboardContainer = document.getElementById('leaderboard');
+    leaderboardContainer.innerHTML = ''; // Clear existing leaderboard before rendering
+
+    data.forEach((album, index) => {
+        const albumEntry = document.createElement('li');
+        albumEntry.classList.add('album-entry');
+
+        albumEntry.innerHTML = `
+            <div class="rank">${index + 1}</div>
+            <div class="album-name">${album.name}</a></div>
+            <div class="play-count">${album.playCount}</div>
+        `;
+
+        leaderboardContainer.appendChild(albumEntry);
+    });
+}
+
+// Initialize the leaderboard when the page loads
+window.onload = loadLeaderboard;
