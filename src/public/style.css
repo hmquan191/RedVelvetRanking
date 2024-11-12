@@ -323,3 +323,37 @@ input {
 
 
 
+/* video content */
+
+.video-container {
+    background-color: #000000;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    border: 5px solid #ffc0cb;
+    justify-content: center;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.yt-video {
+    margin: 20px;
+    display: block;
+    width: 200px;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+    align-items: center;
+}
+
+.video-thumbnail {
+    width: 120%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.video-title {
+    font-size: 14px;
+    margin-top: 8px;
+    color: gold;
+}

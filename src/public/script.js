@@ -142,6 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 members.forEach(member => {
                     const randomNum = Math.floor(Math.random() * counts[member]) + 1; // Use count from API
                     document.getElementById(`${member}-slot`).src = `img/RV_CardGame/${member}/${randomNum}_${member}.jpg`;
+                    console.log('\n');
+                    console.log(`img/RV_CardGame/${member}/${randomNum}_${member}.jpg generated`);
                 });
 
 
@@ -156,8 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Legendary Team",
                     "Perfect Squad"
                 ];
-
-                const randomPhrase = phrases[Math.floor(Math.random()*phrases.length)];
+                const randomPhraseIndex = Math.floor(Math.random()*phrases.length);
+                console.log(`random phrase no.${randomPhraseIndex} generated`);
+                const randomPhrase = phrases[randomPhraseIndex];
                 document.querySelector(".small-text-squad").innerText = randomPhrase;
             });
         })
@@ -165,4 +168,85 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// videos
 
+// const videoSection = document.querySelector('.video-section');
+// const videoContainer = document.querySelector('.video-container');
+// const loader = document.querySelector('.loader'); 
+
+// fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=UUk9GmdlDTBfgGRb7vXeRMoQ&key=AIzaSyAyM6mWoiesabk9jkR2ZBr6NTUWb1ZEtcQ')
+//     .then(res => res.json())
+//     .then(data => {
+//         // Hide loader if you have it
+//         if (loader) loader.style.display = 'none';
+
+//         // Display each video
+//         data.items.forEach((item) => {
+//             const videoId = item.snippet.resourceId.videoId;
+//             const title = item.snippet.title;
+//             const thumbnailUrl = item.snippet.thumbnails.medium.url;
+
+//             // Create a link element for each video
+//             const videoLink = document.createElement('a');
+//             videoLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+//             videoLink.target = '_blank';
+//             videoLink.classList.add('yt-video');
+
+//             videoLink.innerHTML = `
+//                 <img src="${thumbnailUrl}" alt="${title}" class="video-thumbnail">
+//                 <p class="video-title">${title}</p>
+//             `;
+
+//             // Append to the container
+//             videoContainer.appendChild(videoLink);
+//         });
+//     })
+//     .catch(error => {
+//         console.error('Error fetching videos:', error);
+//         videoSection.innerHTML = '<p class="error-message">Failed to load videos. Please try again later.</p>';
+//     });
+
+
+const videoSection = document.querySelector('.video-section');
+const videoContainer = document.querySelector('.video-container');
+const loader = document.querySelector('.loader');
+
+// Fetch API configuration from the server
+fetch('/api-config')
+    .then(res => res.json())
+    .then(config => {
+        const { apiKey, uploadsId } = config; // Destructure to get apiKey and uploadsId
+        const youtubeApiUrl = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${uploadsId}&key=${apiKey}`;
+
+        return fetch(youtubeApiUrl);
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        if (loader) loader.style.display = 'none';
+
+        // Display each video
+        data.items.forEach((item) => {
+            const videoId = item.snippet.resourceId.videoId;
+            const title = item.snippet.title;
+            const thumbnailUrl = item.snippet.thumbnails.medium.url;
+
+            // Create a link element for each video
+            const videoLink = document.createElement('a');
+            videoLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+            videoLink.target = '_blank';
+            videoLink.classList.add('yt-video');
+
+            videoLink.innerHTML = `
+                <img src="${thumbnailUrl}" alt="${title}" class="video-thumbnail">
+                <p class="video-title">${title}</p>
+            `;
+
+            // Append to the container
+            videoContainer.appendChild(videoLink);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching videos:', error);
+        videoSection.innerHTML = '<p class="error-message">Failed to load videos. Please try again later.</p>';
+});
