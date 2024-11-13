@@ -210,6 +210,7 @@ fetch('/api-config')
         console.error('Error fetching videos:', error);
         // videoSection.innerHTML = '<p class="error-message">Failed to load videos. Please try again later.</p>';
         // alternative
+        console.log("Failed to load videos. Please try again later.");
         videoSection.innerHTML = '\n';
 });
 
