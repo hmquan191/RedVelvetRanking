@@ -237,15 +237,15 @@ const albums = [
     'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=%E2%80%98The+ReVe+Festival+2022+-+Birthday%E2%80%99&format=json',
     'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1cb3df3476a3bcb17c1baa6259fd23de&artist=Red+Velvet&album=Chill+Kill+-+The+3rd+Album&format=json',
 ];
-
 async function fetchAlbumData(url) {
     try {
         const response = await fetch(url);
         const data = await response.json();
         return {
             name: data.album.name,
-            playCount: data.album.playcount,
-            imageUrl: data.album.image.find(img => img.size === "extralarge")['#text'],
+            playCount: parseInt(data.album.playcount, 10), // Convert play count to a number
+            imageUrl: data.album.image.find(img => img.size === "medium")['#text'],
+            listeners: parseInt(data.album.listeners, 10) // Convert listeners to a number
         };
     } catch (error) {
         console.error("Error fetching album data:", error);
@@ -272,8 +272,10 @@ function renderLeaderboard(data) {
 
         albumEntry.innerHTML = `
             <div class="rank">${index + 1}</div>
-            <div class="album-name">${album.name}</a></div>
-            <div class="play-count">${album.playCount}</div>
+            <div class="album-image"><img src="${album.imageUrl}" alt="${album.name} album cover"></div>
+            <div class="album-name">${album.name}</div>
+            <div class="play-count">${album.playCount.toLocaleString()}</div>
+            <div class="listeners">${album.listeners.toLocaleString()}</div>
         `;
 
         leaderboardContainer.appendChild(albumEntry);

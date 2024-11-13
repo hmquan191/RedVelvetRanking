@@ -54,7 +54,6 @@ h1 {
     color: blanchedalmond; /* Keep the same color when hovered or clicked */
 }
 
-
 .leaderboard-container {
     width: 70%;
     max-width: 1600px;
@@ -67,12 +66,28 @@ h1 {
     text-align: center;
 }
 
-.header {
-    display: flex;
-    justify-content: center;
-    gap: 300px;
-    font-size: 20px;
-    margin-bottom: 20px;
+.header-row, .leaderboard-list li {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 2fr 1fr 1fr;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    background-color: #000000;
+    color:blanchedalmond;
+}
+
+.header-row {
+    font-weight: bold;
+    background-color: #7e0000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.header-item {
+    padding: 10px;
 }
 
 .leaderboard-list {
@@ -81,19 +96,11 @@ h1 {
 }
 
 .leaderboard-list li {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    align-items: center;
-    padding: 10px;
-    margin: 5px 0;
     background-color: rgba(125, 18, 18, 0.499);
-    color: white;
     border-radius: 5px;
-    text-align: center;
-    font-size: 18px;
 }
 
-.album-image {
+.album-image img {
     width: 60px;
     height: 60px;
     object-fit: cover;
@@ -102,7 +109,7 @@ h1 {
 
 
 .button-container{
-    display: flex;
+    display: block;
     justify-content: center;
     margin-top: 20px;
 }

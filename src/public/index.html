@@ -20,9 +20,20 @@
 
     
 
-    <div class="leaderboard-container">
+
+        <div class="leaderboard-container">
+            <!-- Header row for labels -->
+            <div class="header-row">
+                <div class="header-item">No.</div>
+                <div class="header-item">Album Cover</div>
+                <div class="header-item">Album Name</div>
+                <div class="header-item">Play Count</div>
+                <div class="header-item">Listeners</div>
+            </div>
+            <ul id="leaderboard" class="leaderboard-list"></ul>
+        </div>
+
         <ul id="leaderboard" class="leaderboard-list"></ul>
-    </div>
 
 
 <!--     
@@ -151,45 +162,6 @@
 
 
 
-<h1>WHO IS YOUR ULTIMATE BIAS?</h1>
-<p class = "small-text">Fill out the form and cast your vote to see the stats</p>
-
-<form>
-    <!-- basic info -->
-    <fieldset>
-        <label for="first-name"><h3>First Name:</h3> <input id="last-name"  size = 30 type="text" required /></label>
-        <label for="last-name"><h3>Last Name:</h3> <input id="last-name"  size = 30 type="text" required /></label>
-        <label for="email"> <h3>Your Email:</h3> <input id="email" size = 30  type="email" required /></label>
-    <!-- radio option -->
-    <fieldset>
-        <legend>Your Ultimate Bias is:</legend>
-        <label>
-            <label>
-                <input name="voting" type="radio" checked required>
-                <p id="joy" class="glow">JOY</p>
-            </label>
-            <label>
-                <input name="voting" type="radio" required>
-                <p id="yeri" class="glow">YERI</p>
-            </label>
-            <label>
-                <input name="voting" type="radio" required>
-                <p id="irene" class="glow">IRENE</p>
-            </label>
-            <label>
-                <input name="voting" type="radio" required>
-                <p id="seulgi" class="glow">SEULGI</p>
-            </label>
-            <label>
-                <input name="voting" type="radio" required>
-                <p id="wendy" class="glow">WENDY</p>
-            </label>
-
-        
-        
-    </fieldset>
-    <input type = "submit" value = "Submit" />
-</form>
 
 
 </body>
