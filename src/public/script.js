@@ -208,7 +208,9 @@ fetch('/api-config')
     })
     .catch(error => {
         console.error('Error fetching videos:', error);
-        videoSection.innerHTML = '<p class="error-message">Failed to load videos. Please try again later.</p>';
+        // videoSection.innerHTML = '<p class="error-message">Failed to load videos. Please try again later.</p>';
+        // alternative
+        videoSection.innerHTML = '\n';
 });
 
 
