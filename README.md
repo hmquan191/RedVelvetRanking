@@ -6,6 +6,7 @@ Hello, everyone! I'm Liam, and this is my very first project building a website,
 1. Top Albums Leaderboard:
 
 Fetches data from Last.fm to display the play count and total listeners for the top 11 Red Velvet albums.
+
 2. Latest Videos:
 
 Retrieves the 10 most recent videos from Red Velvet's official YouTube page using the YouTube Data API (v3).
