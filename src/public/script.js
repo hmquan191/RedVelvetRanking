@@ -176,7 +176,7 @@ fetch('/api-config')
     .then(res => res.json())
     .then(config => {
         const { apiKey, uploadsId } = config; // Destructure to get apiKey and uploadsId
-        const youtubeApiUrl = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${UUk9GmdlDTBfgGRb7vXeRMoQ}&key=${AIzaSyAyM6mWoiesabk9jkR2ZBr6NTUWb1ZEtcQ}`;
+        const youtubeApiUrl = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${uploadsId}&key=${apiKey}`;
 
         return fetch(youtubeApiUrl);
     })
