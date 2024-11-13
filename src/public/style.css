@@ -327,8 +327,8 @@ input {
 }
 
 .slot img {
-    width: 250px;
-    height: 280px;
+    width: 270px;
+    height: 410px;
     margin: 10px;
     border-radius: 10px;
     border: 5px solid transparent; /* Border thickness with transparent color */
