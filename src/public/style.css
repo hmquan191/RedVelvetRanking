@@ -234,6 +234,16 @@ iframe{
     gap: 10px;
 }
 
+.name-tag a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.name-tag a:visited{
+    color: inherit;
+    text-decoration: none;
+}
+
 .name-tag span{
     padding: 5px 15px;
     border-radius: 15px;
