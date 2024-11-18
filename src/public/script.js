@@ -207,47 +207,47 @@ fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxR
 
 
 // Fetch API configuration from the server
-fetch('/api-config')
-    .then(res => res.json())
-    .then(config => {
-        const { apiKey, uploadsId } = config; // Destructure to get apiKey and uploadsId
-        const youtubeApiUrl = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${uploadsId}&key=${apiKey}`;
+// fetch('/api-config')
+//     .then(res => res.json())
+//     .then(config => {
+//         const { apiKey, uploadsId } = config; // Destructure to get apiKey and uploadsId
+//         const youtubeApiUrl = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${uploadsId}&key=${apiKey}`;
 
-        return fetch(youtubeApiUrl);
-    })
-    .then(res => res.json())
-    .then(data => {
+//         return fetch(youtubeApiUrl);
+//     })
+//     .then(res => res.json())
+//     .then(data => {
 
-        if (loader) loader.style.display = 'none';
+//         if (loader) loader.style.display = 'none';
 
-        // Display each video
-        data.items.forEach((item) => {
-            const videoId = item.snippet.resourceId.videoId;
-            const title = item.snippet.title;
-            const thumbnailUrl = item.snippet.thumbnails.medium.url;
+//         // Display each video
+//         data.items.forEach((item) => {
+//             const videoId = item.snippet.resourceId.videoId;
+//             const title = item.snippet.title;
+//             const thumbnailUrl = item.snippet.thumbnails.medium.url;
 
-            // Create a link element for each video
-            const videoLink = document.createElement('a');
-            videoLink.href = `https://www.youtube.com/watch?v=${videoId}`;
-            videoLink.target = '_blank';
-            videoLink.classList.add('yt-video');
+//             // Create a link element for each video
+//             const videoLink = document.createElement('a');
+//             videoLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+//             videoLink.target = '_blank';
+//             videoLink.classList.add('yt-video');
 
-            videoLink.innerHTML = `
-                <img src="${thumbnailUrl}" alt="${title}" class="video-thumbnail">
-                <p class="video-title">${title}</p>
-            `;
+//             videoLink.innerHTML = `
+//                 <img src="${thumbnailUrl}" alt="${title}" class="video-thumbnail">
+//                 <p class="video-title">${title}</p>
+//             `;
 
-            // Append to the container
-            videoContainer.appendChild(videoLink);
-        });
-    })
-    .catch(error => {
-        console.error('Error fetching videos:', error);
-        // videoSection.innerHTML = '<p class="error-message">Failed to load videos. Please try again later.</p>';
-        // alternative
-        console.log("Failed to load videos. Please try again later.");
-        videoSection.innerHTML = '\n';
-});
+//             // Append to the container
+//             videoContainer.appendChild(videoLink);
+//         });
+//     })
+//     .catch(error => {
+//         console.error('Error fetching videos:', error);
+//         // videoSection.innerHTML = '<p class="error-message">Failed to load videos. Please try again later.</p>';
+//         // alternative
+//         console.log("Failed to load videos. Please try again later.");
+//         videoSection.innerHTML = '\n';
+// });
 
 
 
