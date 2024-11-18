@@ -171,6 +171,19 @@ const videoSection = document.querySelector('.video-section');
 const videoContainer = document.querySelector('.video-container');
 const loader = document.querySelector('.loader');
 
+
+// checking api ytb
+fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=UUk9GmdlDTBfgGRb7vXeRMoQ&key=AIzaSyAyM6mWoiesabk9jkR2ZBr6NTUWb1ZEtcQ`)
+  .then((response) => response.json())
+  .then((data) => {
+    data.items.forEach((item) => {
+      console.log(item.snippet.title);
+      // Handle video rendering logic here
+    });
+  })
+  .catch((error) => console.error('Error fetching videos: 111', error));
+
+
 // Fetch API configuration from the server
 fetch('/api-config')
     .then(res => res.json())
@@ -284,6 +297,8 @@ function renderLeaderboard(data) {
         leaderboardContainer.appendChild(albumEntry);
     });
 }
+
+
 
 // Initialize the leaderboard when the page loads
 window.onload = loadLeaderboard;
