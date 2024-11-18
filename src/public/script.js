@@ -171,39 +171,35 @@ const videoSection = document.querySelector('.video-section');
 const videoContainer = document.querySelector('.video-container');
 const loader = document.querySelector('.loader');
 
-
 // checking api ytb
-fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=UUk9GmdlDTBfgGRb7vXeRMoQ&key=AIzaSyAyM6mWoiesabk9jkR2ZBr6NTUWb1ZEtcQ`)
+fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=15&playlistId=UUk9GmdlDTBfgGRb7vXeRMoQ&key=AIzaSyAyM6mWoiesabk9jkR2ZBr6NTUWb1ZEtcQ`)
     .then((response) => response.json())
     .then((data) => {
+        if (loader) loader.style.display = 'none'; // Hide loader after data is fetched
+
+        // Iterate through the videos
         data.items.forEach((item) => {
-            console.log(item.snippet.title);
-            // Handle video rendering logic here
-            if (loader) loader.style.display = 'none';
+            const videoId = item.snippet.resourceId.videoId;
+            const title = item.snippet.title;
+            const thumbnailUrl = item.snippet.thumbnails.medium.url;
 
-            // Display each video
-            data.items.forEach((item) => {
-                    const videoId = item.snippet.resourceId.videoId;
-                    const title = item.snippet.title;
-                    const thumbnailUrl = item.snippet.thumbnails.medium.url;
+            // Create a link element for each video
+            const videoLink = document.createElement('a');
+            videoLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+            videoLink.target = '_blank';
+            videoLink.classList.add('yt-video');
 
-                    // Create a link element for each video
-                    const videoLink = document.createElement('a');
-                    videoLink.href = `https://www.youtube.com/watch?v=${videoId}`;
-                    videoLink.target = '_blank';
-                    videoLink.classList.add('yt-video');
+            videoLink.innerHTML = `
+                <img src="${thumbnailUrl}" alt="${title}" class="video-thumbnail">
+                <p class="video-title">${title}</p>
+            `;
 
-                    videoLink.innerHTML = `
-                            <img src="${thumbnailUrl}" alt="${title}" class="video-thumbnail">
-                            <p class="video-title">${title}</p>
-                    `;
-
-                    // Append to the container
-                    videoContainer.appendChild(videoLink);
-            });
+            // Append to the container
+            videoContainer.appendChild(videoLink);
         });
     })
-    .catch((error) => console.error('Error fetching videos: 111', error));
+    .catch((error) => console.error('Error fetching videos:', error));
+
 
 
 // Fetch API configuration from the server
