@@ -313,7 +313,7 @@ input {
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 #luckyCard {
@@ -327,29 +327,49 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
+    padding: 20px;
 }
 
 .slot-machine {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Five equal columns */
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+}
+
+.slot {
+    margin: 0 20px;
+    position: relative; /* Allows for layered effects if needed */
 }
 
 .slot img {
-    width: 270px;
-    height: 410px;
-    margin: 10px;
-    border-radius: 10px;
-    border: 5px solid transparent; /* Border thickness with transparent color */
+    gap: 10px;
+    width: 200px; /* Adjusted width for better proportions */
+    height: 320px; /* Adjusted height for better proportions */
+    border-radius: 15px;
+    border: 5px solid transparent;
     background: linear-gradient(90deg, #FFD700, #FFB800, #FFD700); /* Gold gradient */
     background-origin: border-box;
-    background-clip: content-box, border-box; /* Inner image without affecting border */
-    border: 5px solid #ffc0cb;
-    box-shadow: 0px 0px 15px 5px rgba(255, 0, 128, 0.6);
-    transition: transform 0.5s ease;
+    background-clip: content-box, border-box;
+    box-shadow: 0 0 15px 5px rgba(255, 0, 128, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.slot img:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0 0 25px 10px rgba(255, 0, 128, 0.8);
+}
+
+.slot:nth-child(odd) {
+    transform: translateY(20px); /* Stagger odd-numbered images */
+}
+
+.slot:nth-child(even) {
+    transform: translateY(-20px); /* Stagger even-numbered images */
+}
 
 @keyframes spin {
     0% { transform: translateY(0); }
@@ -361,7 +381,7 @@ input {
 }
 
 .spinning img {
-    animation: spin 0.8s ease infinite;
+    animation: spin 1s ease infinite;
 }
 
 
@@ -399,4 +419,5 @@ input {
     font-size: 14px;
     margin-top: 8px;
     color: gold;
+    text-align: center;
 }
