@@ -11,16 +11,15 @@ Hello, everyone! I'm Liam, and this is my very first project building a website,
 
 2. Latest Videos:
 
-  Retrieves the 10 most recent videos from Red Velvet's official YouTube page using the YouTube Data API (v3).
-  Note: This feature currently works only on local hosting due to API restrictions on deployed sites.
+  Retrieves 15 most recent videos from Red Velvet's official YouTube page using the YouTube Data API (v3).
 
 3. Spotify Album Previews:
 
-  Allows users to listen to Red Velvet's albums through Spotify. (Requires Spotify to be installed on the user's device to access previews.)
+  Allows users to listen to Red Velvet's albums through Spotify.
 
 4. Lucky Card Generator:
 
-  A fun feature to generate random pictures of Red Velvet members. Each click reveals a new formation!
+  A fun feature to generate random pictures of Red Velvet members. Each click reveals a new image.
 
 5. Build Your Squad:
 
@@ -31,9 +30,6 @@ HTML / CSS / JavaScript for the frontend
 Node.js and Express for the backend
 YouTube Data API (v3) and Last.fm API for external data fetching
 
-📢 Notes
-The YouTube Data API feature works locally, but may not run on the deployed web due to API key restrictions.
-The Spotify preview requires the Spotify application to be installed for access.
 Thank you for checking out my project!
 
 
