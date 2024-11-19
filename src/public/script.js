@@ -26,67 +26,157 @@
 // });
 
 
-document.addEventListener('DOMContentLoaded', function() {
+// document.addEventListener('DOMContentLoaded', function() {
+//     const carousel = document.querySelector('.spotify-carousel');
+//     const items = document.querySelectorAll('.spotify-item');
+//     const prevButton = document.querySelector('.prev-button');
+//     const nextButton = document.querySelector('.next-button');
+
+//     const endMessage = document.querySelector('.end-message');
+
+    
+//     const checkCarouselEnd = () => {
+//         if (currentIndex === items.length - 1) {
+//             endMessage.classList.add('visible');
+//         } else {
+//             endMessage.classList.remove('visible');
+//         }
+//     };
+
+
+//     let currentIndex = 0;
+//     const itemWidth = 350; // Width + gap
+    
+//     // Set initial position
+//     updateCarousel();
+    
+//     // Auto-scroll
+//     let autoScrollInterval = setInterval(nextSlide, 4000);
+    
+//     // Reset interval on user interaction
+//     function resetInterval() {
+//         clearInterval(autoScrollInterval);
+//         autoScrollInterval = setInterval(nextSlide, 4000);
+//     }
+    
+//     function updateCarousel() {
+//         const offset = -currentIndex * itemWidth;
+//         carousel.style.transform = `translateX(${offset}px)`;
+        
+//         // Update active states
+//         items.forEach((item, index) => {
+//             item.classList.toggle('active', index === currentIndex);
+//         });
+//     }
+    
+//     function nextSlide() {
+//         currentIndex = (currentIndex + 1) % items.length;
+//         updateCarousel();
+//     }
+    
+//     function prevSlide() {
+//         currentIndex = (currentIndex - 1 + items.length) % items.length;
+//         updateCarousel();
+//     }
+    
+//     // Event Listeners
+//     nextButton.addEventListener('click', () => {
+//         nextSlide();
+//         resetInterval();
+//     });
+    
+//     prevButton.addEventListener('click', () => {
+//         prevSlide();
+//         resetInterval();
+//     });
+    
+//     // Pause auto-scroll on hover
+//     carousel.addEventListener('mouseenter', () => {
+//         clearInterval(autoScrollInterval);
+//     });
+    
+//     carousel.addEventListener('mouseleave', () => {
+//         autoScrollInterval = setInterval(nextSlide, 5000);
+//     });
+
+//     carousel.addEventListener('scroll', checkCarouselEnd);
+// });
+
+
+document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.querySelector('.spotify-carousel');
     const items = document.querySelectorAll('.spotify-item');
     const prevButton = document.querySelector('.prev-button');
     const nextButton = document.querySelector('.next-button');
-    
+    const endMessage = document.querySelector('.end-message');
+
     let currentIndex = 0;
     const itemWidth = 350; // Width + gap
-    
+
     // Set initial position
     updateCarousel();
-    
+
     // Auto-scroll
     let autoScrollInterval = setInterval(nextSlide, 4000);
-    
+
     // Reset interval on user interaction
     function resetInterval() {
         clearInterval(autoScrollInterval);
         autoScrollInterval = setInterval(nextSlide, 4000);
     }
-    
+
     function updateCarousel() {
         const offset = -currentIndex * itemWidth;
         carousel.style.transform = `translateX(${offset}px)`;
-        
+
         // Update active states
         items.forEach((item, index) => {
             item.classList.toggle('active', index === currentIndex);
         });
+
+        // Check if at the end
+        checkCarouselEnd();
     }
-    
+
     function nextSlide() {
         currentIndex = (currentIndex + 1) % items.length;
         updateCarousel();
     }
-    
+
     function prevSlide() {
         currentIndex = (currentIndex - 1 + items.length) % items.length;
         updateCarousel();
     }
-    
+
+    function checkCarouselEnd() {
+        if (currentIndex === items.length - 1) {
+            endMessage.classList.add('visible');
+        } else {
+            endMessage.classList.remove('visible');
+        }
+    }
+
     // Event Listeners
     nextButton.addEventListener('click', () => {
         nextSlide();
         resetInterval();
     });
-    
+
     prevButton.addEventListener('click', () => {
         prevSlide();
         resetInterval();
     });
-    
+
     // Pause auto-scroll on hover
     carousel.addEventListener('mouseenter', () => {
         clearInterval(autoScrollInterval);
     });
-    
+
     carousel.addEventListener('mouseleave', () => {
         autoScrollInterval = setInterval(nextSlide, 5000);
     });
 });
+
 
 
 

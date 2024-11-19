@@ -221,6 +221,31 @@ background: rgba(238, 17, 17, 0.81); */
     right: 20px;
 }
 
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 24px;
+    text-shadow: 0 0 10px rgba(255, 0, 128, 0.8);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.end-message p {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #ffc0cb;
+}
+
+.end-message.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 
 iframe{
     width: 50%;
