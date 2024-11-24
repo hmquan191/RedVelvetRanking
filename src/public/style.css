@@ -113,8 +113,7 @@ h1 {
     justify-content: center;
     margin-top: 20px;
 }
-/* 
-background: rgba(238, 17, 17, 0.81); */
+
 
 .button {
     margin: 0;
@@ -127,7 +126,7 @@ background: rgba(238, 17, 17, 0.81); */
     color: white;
     font-weight: bold;
     border: none;
-    border-radius: 5px; /* Optional: Rounded corners for the button */
+    border-radius: 5px; /*Rounded corners for the button */
     cursor: pointer;
     transition: all 0.3s ease;
 }
